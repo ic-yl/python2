@@ -1,0 +1,9 @@
+$ORIGIN course.test.
+$TTL 12
+@ IN SOA ns.course.test. hostmaster.course.test. (2026112001 60 30 120 12)
+@ IN NS ns.course.test.
+ns IN A 192.0.2.53
+cutover IN A 192.0.2.24
+cutover IN AAAA 2001:db8::24
+www IN CNAME cutover.course.test.
+policy IN TXT "environment=training"

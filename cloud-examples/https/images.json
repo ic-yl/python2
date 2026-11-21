@@ -1,0 +1,5 @@
+{
+  "pebble": "ghcr.io/letsencrypt/pebble@sha256:b436c398c723ca209129218e907a3c3fdcaeab71bc42e5bdef819645ad94ac37",
+  "certbot": "docker.io/certbot/certbot@sha256:c5698da859429ccee0fcc299a8000368198222d1f9e789ab6e388b491e8ce06d",
+  "nginx": "docker.io/library/nginx@sha256:caf4e1e032a20f9c3c5e28fc7f25ffd768ad8677b4975c54193075997b3a97e3"
+}

@@ -1,0 +1,45 @@
+services:
+  edge:
+    image: ${EDGE_IMAGE:?read images.env}
+    entrypoint: [nginx, '-g', 'daemon off;']
+    user: '101:101'
+    read_only: true
+    cap_drop: [ALL]
+    tmpfs: ['/tmp:mode=1777']
+    ports: ['127.0.0.1::8080']
+    networks: [entry, transit]
+    volumes:
+      - ./nginx-base.conf:/etc/nginx/nginx.conf:ro
+      - ./${COURSE_CONF:-edge.conf}:/etc/nginx/lesson.conf:ro
+    depends_on: [api]
+  api:
+    image: ${API_IMAGE:?read images.env}
+    command: [python, '-B', '/course/fixture.py']
+    user: '65534:65534'
+    read_only: true
+    cap_drop: [ALL]
+    networks: [transit, data]
+    volumes:
+      - ./fixture.py:/course/fixture.py:ro
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: ${DB_IMAGE:?read images.env}
+    environment:
+      POSTGRES_USER: course
+      POSTGRES_DB: lab
+      POSTGRES_PASSWORD: this-is-only-the-course-fixture-password
+    networks: [data]
+    tmpfs: [/var/lib/postgresql, /var/run/postgresql]
+    healthcheck:
+      test: [CMD, pg_isready, -h, 127.0.0.1, -U, course, -d, lab]
+      interval: 1s
+      timeout: 2s
+      retries: 20
+networks:
+  entry: {}
+  transit:
+    internal: true
+  data:
+    internal: true

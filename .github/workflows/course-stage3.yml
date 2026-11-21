@@ -14,3 +14,18 @@ jobs:
           persist-credentials: false
       - name: Check the exact course contract
         run: python3 -I -B ci/check_contract.py contracts/workbench.openapi.json
+  published-cloud-examples:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        topic: [topology, upstream-tls, dns, https]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Test both published examples
+        env:
+          LAB_TOPIC: ${{ matrix.topic }}
+        run: python3 -I -B ci/check_cloud_examples.py "$LAB_TOPIC"

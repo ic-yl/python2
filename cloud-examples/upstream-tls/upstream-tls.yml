@@ -1,0 +1,42 @@
+services:
+  edge:
+    image: ${EDGE_IMAGE:?use images.env}
+    entrypoint: [nginx, '-g', 'daemon off;']
+    user: '101:101'
+    read_only: true
+    cap_drop: [ALL]
+    tmpfs: ['/tmp:mode=1777']
+    ports: ['127.0.0.1::8080']
+    networks: [entry, private]
+    volumes:
+      - ./nginx-base.conf:/etc/nginx/nginx.conf:ro
+      - ./${COURSE_CONF:-edge.conf}:/etc/nginx/course.conf:ro
+      - type: bind
+        source: ${COURSE_TLS_ROOT:-.}/trust
+        target: /trust
+        read_only: true
+    depends_on:
+      upstream:
+        condition: service_healthy
+  upstream:
+    image: ${UPSTREAM_IMAGE:?use images.env}
+    user: '65534:65534'
+    command: [python, '-B', '/course/upstream.py']
+    read_only: true
+    cap_drop: [ALL]
+    networks: [private]
+    volumes:
+      - ./upstream.py:/course/upstream.py:ro
+      - type: bind
+        source: ${COURSE_TLS_ROOT:-.}/server
+        target: /server
+        read_only: true
+    healthcheck:
+      test: [CMD, python, '-c', 'import socket; socket.create_connection(("127.0.0.1",9443),1).close()']
+      interval: 1s
+      timeout: 2s
+      retries: 10
+networks:
+  entry: {}
+  private:
+    internal: true

@@ -1,0 +1,14 @@
+course.test:1053 {
+    errors
+    file /course/course.test.zone course.test {
+        reload 1s
+    }
+}
+course.test:1054 {
+    errors
+    cache 12 {
+        success 1024 12 1
+        denial 1024 12 1
+    }
+    forward . 127.0.0.1:1053
+}

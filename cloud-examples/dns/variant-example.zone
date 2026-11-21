@@ -1,0 +1,7 @@
+$ORIGIN course.test.
+$TTL 12
+@ IN SOA ns.course.test. hostmaster.course.test. (1 60 30 120 12)
+@ IN NS ns.course.test.
+ns IN A 192.0.2.53
+ipv4-only IN A 192.0.2.70
+docs 24 IN AAAA 2001:db8::70
