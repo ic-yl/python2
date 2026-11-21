@@ -1,0 +1,20 @@
+name: Stage 3 CoreDNS Linux candidate
+on:
+  push:
+    branches: [course-stage3-verification]
+    paths: [dns-linux-candidate/**]
+permissions:
+  contents: read
+jobs:
+  dns:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify the corrected DNS examples
+        run: |
+          cp dns-linux-candidate/run.py cloud-examples/dns/run.py
+          cp dns-linux-candidate/manifest.json ci/cloud-examples.json
+          python3 -I -B ci/check_cloud_examples.py dns

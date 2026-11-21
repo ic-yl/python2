@@ -2,6 +2,7 @@ name: Stage 3 Workbench contract verification
 on:
   push:
     branches: [course-stage3-verification]
+    paths: [contracts/**, ci/check_contract.py, ci/check_cloud_examples.py, ci/cloud-examples.json, cloud-examples/**]
 permissions:
   contents: read
 jobs:

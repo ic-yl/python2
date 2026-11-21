@@ -1,0 +1,46 @@
+{
+  "topology": {
+    "edge.conf": "80f28e3139e051558ec9e4e921490559376e82359c1117248c591c7a231ab5b0",
+    "fixture.py": "5edb62b8ce263c4485fe9bb137ac180c6d4349bcded47e30a585c0a692dc4947",
+    "guide.conf": "d2ed459573d26023b9189d647321ccbed309cdb56f7b82baf1d2d75bfa56298e",
+    "images.env": "2d200c2c7cc46bc1f800768d4cc3bfcd24d483e0b493103caa0d7c6f40792a92",
+    "my_variant.conf": "fb45b49982e8f7c0fa3904a6e2f4212ac9f489ccdd054b6710537b6726f6492f",
+    "nginx-base.conf": "55150ff0fb5389d9533a56ef1165198f6efe5f9a5996cf6860269cbdeb3ed5e4",
+    "run.py": "2d3f19d79069e6898c3e779ce9fd513497c24b4ee13368567d9af10f2fa19139",
+    "topology.yml": "71828a7f991ff559e719b881fe70911f9e38b01dddc56e1b614c53d327ce26d9",
+    "variant_example.conf": "4ce592d80367b58ad9d5763def63faa466ba78f19fcccc5b58428cb88e8f255f"
+  },
+  "upstream-tls": {
+    "certificates.py": "ccaca4976b40feed352d21f703482723fa242292ed1342414c2b3f000dcad2c3",
+    "edge.conf": "3131862972e1cf4fd08d45bfca8c2eaf2433476c9801672377eb28d008a5fbdb",
+    "guide.conf": "bea7fd5f9fcc0344538be5d4092567637cbee371909c7ef20090e909bc587d73",
+    "images.env": "9d0b572f61aaa92934cac998da121a362d0f522a18db69eefd0e894927eebd9c",
+    "my_variant.conf": "e65db72ed11df8c35a5ecaa9eb02db4a5091ef66b89971d167ca776776e30c5a",
+    "nginx-base.conf": "0012286ed4fe494cd11cbc6145583ee4d24bea8a07e5096758398357032781bb",
+    "run.py": "7d05434f316a4366ddc67d8233d7f58f1402c05e96d5c1427f57bba8a5c0e4d3",
+    "upstream-tls.yml": "34a691b3e5175f5e75183d3e4b874ee7b33243479619681e67792c1856239167",
+    "upstream.py": "240ba7306d467800c05e50ea4918dad6191ef16633b05b6d188fec190bfc8b09",
+    "variant_example.conf": "6ccc75f54c4a26472e2493b1d2be3e3b5b471de23b70ba7ad9d6c668c3a3fa42"
+  },
+  "dns": {
+    "Corefile": "d24fdde57bfc81827ae8dc23a91bc8363553e9559998feb1602c425960b1c080",
+    "guide.zone": "71ed2ad25157cd73582b3ac1bd3751c67c77309aea53b262e1ca4904906ec8f7",
+    "image.txt": "622ded7ee7863111bf2353abc33cf1f6d1b96a8e00f29864ed90d16538daa67e",
+    "requirements.txt": "3489e443f2bdb761d5e4bf098c05ae8064ecfff02b8494732a4eab1c6beb4fbc",
+    "run.py": "086f6c194dc14c56b1d55e7c47a1585b2aceac35609cd0e581d0cb8a13af5415",
+    "variant-example.zone": "b24f1823c38b90b7f29db1697aa65b57d548e814d41fff852ae8540eea41a42e",
+    "zone-after.txt": "0f4333be8ebb3e0b292af340dbf491a3aae7ebe962e49b1ac5e6f3aa9f47d836",
+    "zone-rollback.txt": "5a09714091ff16886ebdd03968cea97f082315dad9573dc9c08177faf0db7e09",
+    "zone-v1.txt": "9b14e7285fb30b7a90ce2b3b31896ded6ac989bd36eea2a4b173167c01bb5f6b"
+  },
+  "https": {
+    "deploy_lab.py": "0f12fbca1b1e97ced01fcae5c14793c141d9156900340dc9ec3fe228f71b95cf",
+    "edge.conf": "765424b1de837f1fdc7e9285d055c20bb760c9758aee7e127d130fa647795f84",
+    "guide-http.conf": "61fd2f93b8bfa064c885f0600aa83cbb18c87a1b06cee49d6d68e171905e442c",
+    "guide-tls.conf": "08aed3af843cc16626993412acd3d1f6ef7052ba2db2fcc501a35e52f6c5966a",
+    "images.json": "7628c67502259cc3f629157dd58c041f508d99d0883d700d211ed2f632a946bb",
+    "nginx-base.conf": "47fab9d42bb9961bd4ed14fb368cf34c12a0381289e5f03f4b5ec9f910afc45a",
+    "run.py": "0ec543b097ac1ce93701fe9e6048b948e7372d971116bcd7bf319cab550478e1",
+    "tls.conf": "827721b61a21de03cd6ac53bc1b3d057191496b527064fbd4ee980a8015f33d4"
+  }
+}
